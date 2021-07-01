@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-export const useMount = (callback, ...m) => {
+export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback();
-  }, m);
+  }, []);
 };
 
-export const useDebouce = (value, delay = 5000) => {
+export const useDebouce = <V>(value: V, delay?: number): V => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     // 在value变化后都要设置一个定时器
