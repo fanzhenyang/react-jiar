@@ -15,3 +15,22 @@ export const useDebouce = <V>(value: V, delay?: number): V => {
   }, [value, delay]);
   return debouncedValue;
 };
+
+export const useArray = <T>(list: T[]) => {
+  const [value, setValue] = useState(list);
+  /**清空数组 */
+  const clear = () => {
+    setValue(new Array<T>());
+  };
+
+  /**添加一项 */
+  const add = (item: T) => {
+    setValue([...value, item]);
+  };
+
+  /**下标删除一项 */
+  const remove = (i: number) => {
+    setValue(value.filter((item, index) => index !== i));
+  };
+  return { remove, add, clear, value };
+};

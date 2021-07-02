@@ -14,14 +14,14 @@ export const cleanObject = (object: object) => {
 export const isFalsy = (value: unknown): boolean =>
   value === 0 ? false : !value;
 
-// export const debouce = (func: (...rest: any) => void, delay = 5000) => {
-//   let timeout;
-//   return (...rest) => {
-//     if (timeout) {
-//       clearTimeout(timeout);
-//     }
-//     timeout = setTimeout(() => {
-//       func(...rest);
-//     }, delay);
-//   };
-// };
+export const debouce = (func: (...rest: any) => void, delay = 5000) => {
+  let timeout: any;
+  return (...rest: any) => {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => {
+      func(...rest);
+    }, delay);
+  };
+};

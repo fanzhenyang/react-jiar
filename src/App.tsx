@@ -1,9 +1,9 @@
-import { ProjectListScreen } from "./screenes/index";
+import { Login } from "./views/Login";
 import "./App.css";
 function App() {
   return (
     <div className="App">
-      <ProjectListScreen />
+      <Login />
     </div>
   );
 }
